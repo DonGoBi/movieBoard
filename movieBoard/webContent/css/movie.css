@@ -1,0 +1,38 @@
+@charset "UTF-8";
+body{
+	font:14px "맑은 고딕";
+}
+#wrap{
+	width:1000px;
+	margin:0 auto;
+	line-height:2;
+}
+
+h2{
+	text-align:center;
+	color:green;
+}
+
+table{
+	width:100%;
+	border-collapse:collapse;
+}
+
+table td,th{
+	border:1px solid #d3d3d3;
+	
+	padding:5px;
+}
+
+th{background:yellowgreen;}
+
+a{
+	text-decoration:none;
+	color:black;
+}
+
+.listWrap table tr:nth-child(1) td{
+	border-top:none;
+	border-left:none;
+	border-right:none;
+}
