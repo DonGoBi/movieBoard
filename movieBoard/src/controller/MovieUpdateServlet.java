@@ -17,12 +17,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import dao.MovieDAO;
 import dto.MovieVO;
 
-
 @WebServlet("/movieUpdate.do")
 public class MovieUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//영화정보 수정을 위한 폼으로 이동 처리하는 서블릿 클래스
@@ -36,9 +34,9 @@ public class MovieUpdateServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	
+	//영화정보수정을 위한 서블릿
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//영화정보수정을 위한 서블릿
+		
 		request.setCharacterEncoding("utf-8");
 		
 		ServletContext context=getServletContext();
@@ -53,12 +51,9 @@ public class MovieUpdateServlet extends HttpServlet {
 				sizeLimit,
 				encType,
 				new DefaultFileRenamePolicy()
-
 		);
 		
-
 		//폼에서 입력한 영화정보 얻어오기
-
 		String code=multi.getParameter("code");
 		String title=multi.getParameter("title");
 		int price=Integer.parseInt(multi.getParameter("price"));
@@ -70,8 +65,6 @@ public class MovieUpdateServlet extends HttpServlet {
 		}
 		
 		String synopsis=multi.getParameter("synopsis");
-		
-		
 		
 		//상품정보를 저장할 객체 생성
 		MovieVO mVo=new MovieVO();
@@ -86,10 +79,7 @@ public class MovieUpdateServlet extends HttpServlet {
 		MovieDAO mDao= MovieDAO.getInstance();
 		mDao.updateMovie(mVo);
 		
-		
-		
 		response.sendRedirect("movieList.do");
-		
 		
 	}
 

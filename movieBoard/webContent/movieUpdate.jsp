@@ -15,7 +15,6 @@
 		
 		<form method="post" enctype="multipart/form-data" name="frm">
 		
-		
 			<input type="hidden" name="code" value="${movie.code}">
 			<input type="hidden" name="nomakeImg" value="${movie.poster}">
 		
@@ -38,8 +37,7 @@
 						<table>
 							<tr>
 								<th>제목</th>
-								<td>
-								<input type="text" name="title" size="80" value="${movie.title}"></td>
+								<td><input type="text" name="title" size="80" value="${movie.title}"></td>
 							</tr>
 							
 							<tr>
@@ -73,9 +71,6 @@
 			</table>
 			
 			
-			
-			
-				
 			<div style="text-align:center">
 				<input type="submit" value="등록" onclick="return movieCheck()">
 				<input type="reset" value="다시작성">

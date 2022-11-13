@@ -13,9 +13,9 @@ public class DBManager {
 	//커넥션을 얻어오는 메소드 생성
 	public static Connection getConnection() throws Exception{
 		
-		Context initContext = new InitialContext();	//네이밍 조작을 위한 클래스 객체생성
-		Context envContext  = (Context)initContext.lookup("java:/comp/env");	//지정한 이름 찾기
-		DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");	//지정한 이름 찾기
+		Context initContext = new InitialContext();	
+		Context envContext  = (Context)initContext.lookup("java:/comp/env");	
+		DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");	
 		Connection conn = ds.getConnection();
 		
 		return conn;

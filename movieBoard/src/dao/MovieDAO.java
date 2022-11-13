@@ -19,10 +19,10 @@ public class MovieDAO {
 		return instance;
 	}
 	
-	//영화 리스트 조회 메소드 생성
+		//영화 리스트 조회 메소드 생성
 		public List<MovieVO> selectAllMovies(){
 			
-			String sql="select * from movie order by code desc";	//최근등록한 상품 위쪽에 나열
+			String sql="select * from movie order by code desc";	//최근등록한 영화 위쪽에 나열
 			List<MovieVO> list = new ArrayList<MovieVO>();
 			
 			Connection conn=null;
@@ -34,7 +34,7 @@ public class MovieDAO {
 				pstmt=conn.prepareStatement(sql);
 				rs=pstmt.executeQuery();
 				
-				while(rs.next()) {		//행단위로 처리
+				while(rs.next()) {		
 					
 					MovieVO mVo=new MovieVO();
 					mVo.setCode(rs.getInt("code"));
@@ -45,7 +45,7 @@ public class MovieDAO {
 					mVo.setPoster(rs.getString("poster"));
 					mVo.setSynopsis(rs.getString("synopsis"));
 					
-					list.add(mVo);		//mVo에 리스트추가명령
+					list.add(mVo);		
 				}
 				
 			}catch(Exception e) {
@@ -56,8 +56,8 @@ public class MovieDAO {
 			return list;
 		}
 		
-		//영화등록 클릭시 DB에 상품 추가 등록 메소드 생성
-		public void insertMovie(MovieVO mVo) {			//MovieVO의 객체 mVo를 매개변수로 하는 메소드
+		//영화등록 클릭시 DB에 영화 추가 등록 메소드 생성
+		public void insertMovie(MovieVO mVo) {			
 			
 			Connection conn=null;
 			PreparedStatement pstmt = null;
@@ -119,7 +119,6 @@ public class MovieDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
-				
 				DBManager.close(conn, pstmt, rs);
 			}
 			return mVo;
